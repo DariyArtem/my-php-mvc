@@ -6,45 +6,52 @@ use PDO;
 
 class DB
 {
-        private static $connection;
 
-        public  function __construct(){
-            if(empty(self::$connection)){
-                self::$connection = new PDO("mysql:dbname=".DB_NAME.";host=".DB_HOST."", DB_USER, DB_PASS);
+
+        public static function connect(){
+            static $connection = null;
+            if(empty($connection)){
+                $connection = new PDO("mysql:dbname=".DB_NAME.";host=".DB_HOST."", DB_USER, DB_PASS);
             }
-    }
+            return $connection;
+        }
 
-        public static function select($sql, $params = []){
+        public static function select($sql, $data = []){
+            $db = DB::connect();
+            // to do
+            $result = $db->prepare($sql);
+            $result->execute($data);
+            return $result->fetch(PDO::FETCH_ASSOC);
+        }
 
-            $stmt = self::$connection->prepare($sql);
-            if ( !empty($params) ) {
-                foreach ($params as $key => $value) {
-                    $stmt->bindValue(":$key", $value);
-                }
-            }
-            $stmt->execute($params);
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        public static function selectAll($sql,  $data = []){
+            $db = DB::connect();
+            $result = $db->prepare($sql);
+            $result->execute($data);
+            return $result->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public static function delete($sql, $data = []){
+            $db = DB::connect();
+            $query = $db->prepare($sql);
+            $query->execute($data);
+            return true;
 
         }
 
-        public static function insert($sql, $params = []){
-            $stmt = self::$connection->prepare($sql);
-            $result = $stmt->execute($params);
-            return $result;
-
+        public static function update($sql, $data = []){
+            $db = DB::connect();
+            $result = $db->prepare($sql);
+            $result->execute($data);
+            return true;
         }
 
-        public static function update($sql, $params = []){
-
-            $stmt = self::$connection->prepare($sql);
-            $result = $stmt->execute($params);
-            return $result;
-
+        public static function insert($sql, $data = array()){
+            $db = DB::connect();
+            $result = $db->prepare($sql);
+            $result->execute($data);
+            return true;
         }
 
-        public static function delete($sql, $params = []){
-            $stmt = self::$connection->preapre($sql);
-            $result = $stmt->excute($params);
-            return $result;
-        }
+
 }

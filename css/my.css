@@ -1,0 +1,128 @@
+body {
+    background: url(https://media.istockphoto.com/photos/light-mint-green-background-picture-id526069453?k=6&m=526069453&s=170667a&w=0&h=Qi_U_PcLtD47zziKztylosKH_QPrc_BJai4zAOa-dJc=);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+              
+}
+
+.main_photo{
+	width: 350px;
+	margin-top: 7%;
+
+}
+#greeting{
+	font-size: 36px;
+	color: #8a502f;
+}
+#dark{
+	color: #3b2c24;
+}
+#login{
+	position: absolute;
+	left: 52%;
+}
+#reg{
+	position: absolute;
+	left: 42%;
+}
+
+.container{
+	text-align: center;
+	font-family: cursive;
+	font-size: 22px;
+}
+.profileinfo{
+	font-family: cursive;
+	font-size: 22px;
+}
+.registerinput{
+	font-family: cursive;
+	font-size: 16px;
+	margin-bottom: 15px;
+	
+}
+.loginput{
+	margin-bottom: 15px;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.delete {
+	background-color: red;
+}
+
+.alert{
+	font-family: cursive;
+	font-size: 20px;
+	color:black;
+	background-color:#ff3333;
+	border-color:#f5c2c7;
+	position:relative;
+	padding:1rem;
+	margin-bottom:1rem;
+	border:1px solid transparent;
+	border-radius:.25rem;
+	text-align: center;
+
+}
+.alert-success{
+	font-family: cursive;
+	font-size: 20px;
+	color:white;
+	background-color:green;
+	border-color:greenyellow;
+	position:relative;
+	padding:1rem;
+	margin-bottom:1rem;
+	border:1px solid transparent;
+	border-radius:.25rem;
+	text-align: center;
+}
+
+.db-img{
+	width: 350px;
+	margin-bottom: 15px;
+}
+.noClick {
+	pointer-events: none;
+}
+#countLikes{
+	font-size: 22px;
+}
+
+.col{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 18px;
+}
+
+.unlike{
+	border: 0;
+	background: none;
+	letter-spacing: 1px;
+	color: lightseagreen;
+
+}
+.like{
+	border: 0;
+	background: none;
+	letter-spacing: 1px;
+	color: #ffa449 ;
+
+}
+
+.like,.unlike:hover{
+	cursor: pointer;
+}
+
+
